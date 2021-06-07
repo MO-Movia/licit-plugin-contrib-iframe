@@ -1,3 +1,4 @@
+// @flow
 
 import type {PopUpParams, ViewProps} from './PopUp';
 

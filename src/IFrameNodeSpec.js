@@ -11,8 +11,8 @@ function getAttrs(dom: HTMLElement) {
 
   width = width || dom.getAttribute('width');
   height = height || dom.getAttribute('height');
-  
-  
+
+
   return {
     align,
     height: parseInt(height, 10) || null,

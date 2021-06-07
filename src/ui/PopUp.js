@@ -61,7 +61,7 @@ class PopUp extends React.PureComponent<any, any> {
 
   _getDetails = (): PopUpDetails => {
     const { close, popUpParams } = this.props;
-    const { anchor, autoDismiss, position, modal } = popUpParams;
+    const { anchor, position, modal } = popUpParams;
     return {
       anchor,
       autoDismiss: false,

@@ -1,3 +1,4 @@
+// @flow
 
 import PointerSurface from './PointerSurface';
 import * as React from 'react';

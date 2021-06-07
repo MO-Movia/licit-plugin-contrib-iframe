@@ -1,9 +1,11 @@
+// @flow
+
 // IFram ProseMirror Plugin
 // [FS] IRAD-987 2020-06-12
-import { Plugin, PluginKey } from "prosemirror-state";
+import { Plugin, PluginKey } from 'prosemirror-state';
 import { Fragment, Schema } from 'prosemirror-model';
-import { IFRAMEKEY, IFRAME } from "./Constants";
-import createPopUp from './ui/createPopUp';
+import { IFRAMEKEY, IFRAME } from './Constants';
+import createPopUp from './ui/CreatePopUp';
 import IFrameEditor from './ui/IFrameEditor';
 import IFrameNodeSpec from './IFrameNodeSpec';
 
@@ -24,10 +26,6 @@ export default class IFramePlugin extends Plugin {
             const charCode = event.key;
             console.log(charCode);
             if (charCode === 'F7') {
-
-              const text = view.dom.textContent;
-              const $from = view.state.selection.$from;
-
               const props = { runtime: view ? view.runtime : null };
               this._popUp = createPopUp(IFrameEditor, props, {
                 modal: true,
@@ -49,12 +47,12 @@ export default class IFramePlugin extends Plugin {
 
   // [FS][IRAD-???? 2020-08-17]
   // Plugin method that supplies plugin schema to editor
-  getEffectiveSchema(schema) {
+  getEffectiveSchema(schema: Schema) {
     return applyEffectiveSchema(schema);
   }
 }
 
-function applyEffectiveSchema(schema) {
+function applyEffectiveSchema(schema: Schema) {
   const nodes = schema.spec.nodes.append({ 'iframe': IFrameNodeSpec });
   const marks = schema.spec.marks;
 
@@ -65,9 +63,9 @@ function applyEffectiveSchema(schema) {
 }
 
 function executeWithUserInput(view, inputs) {
-  let { state } = view;
+  const { state } = view;
   const { selection, schema } = state;
-  
+
   let { tr } = state;
   tr = tr.setSelection(selection);
   if (inputs) {

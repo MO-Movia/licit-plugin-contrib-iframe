@@ -1,35 +1,13 @@
+// @flow
 
 import * as React from 'react';
-import PropTypes from 'prop-types';
-
 import CustomButton from './CustomButton';
 import preventEventDefault from './PreventEventDefault';
 import '../styles.css';
-import type { ImageLike } from '../Types';
-
-type Props = {
-  initialValue: ?ImageLike,
-  close: (href: ?ImageLike) => void,
-};
 
 class IFrameEditor extends React.PureComponent<any, any> {
   _img = null;
   _unmounted = false;
-
-  // [FS] IRAD-1005 2020-07-07
-  // Upgrade outdated packages.
-  // To take care of the property type declaration.
-  static propsTypes = {
-    initialValue: PropTypes.object,
-    close: function (props: any, propName: string) {
-      var fn = props[propName];
-      if (!fn.prototype ||
-        (typeof fn.prototype.constructor !== 'function' &&
-          fn.prototype.constructor.length !== 1)) {
-        return new Error(propName + 'must be a function with 1 arg of type ImageLike');
-      }
-    }
-  }
 
   state = {
     ...(this.props.initialValue || {}),
@@ -41,7 +19,7 @@ class IFrameEditor extends React.PureComponent<any, any> {
   }
 
   render(): React.Element<any> {
-    const { src, width, height, validValue } = this.state;
+    const {src, width, height, validValue} = this.state;
     return (
       <div className="czi-image-url-editor">
         <form className="czi-form" onSubmit={preventEventDefault}>
@@ -84,7 +62,7 @@ class IFrameEditor extends React.PureComponent<any, any> {
           </fieldset>
           <div className="czi-form-buttons">
             <CustomButton label="Cancel" onClick={this._cancel} />
-            <CustomButton 
+            <CustomButton
               active={!!validValue}
               disabled={!validValue}
               label="OK"
@@ -98,32 +76,26 @@ class IFrameEditor extends React.PureComponent<any, any> {
 
   _onSrcChange = (e: SyntheticInputEvent<>) => {
     const src = e.target.value;
-    this.setState(
-      {
-        src,
-        validValue: true,
-      },
-    );
+    this.setState({
+      src,
+      validValue: true,
+    });
   };
 
   _onWidthChange = (e: SyntheticInputEvent<>) => {
     const width = e.target.value;
-    this.setState(
-      {
-        width,
-        validValue: true,
-      },
-    );
+    this.setState({
+      width,
+      validValue: true,
+    });
   };
 
   _onHeightChange = (e: SyntheticInputEvent<>) => {
     const height = e.target.value;
-    this.setState(
-      {
-        height,
-        validValue: true,
-      },
-    );
+    this.setState({
+      height,
+      validValue: true,
+    });
   };
 
   _cancel = (): void => {
@@ -131,7 +103,6 @@ class IFrameEditor extends React.PureComponent<any, any> {
   };
 
   _insert = (): void => {
-    const { validValue } = this.state;
     this.props.close(this.state);
   };
 }

@@ -95,7 +95,7 @@ class PointerSurface extends React.PureComponent<any, any> {
     this._pressedTarget = null;
     this._clicked = false;
 
-    if (e.which === 3 || e.button == 2) {
+    if (e.which === 3 || e.button === 2) {
       // right click.
       return;
     }
