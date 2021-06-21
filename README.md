@@ -12,3 +12,5 @@ Plugin allows loading of the configured URL in a iframe, if the X-Frame-Options 
 |URL  | URL of the page to be loaded in the iframe. |
 |Width  | Width of the iframe. |
 |Height  | Height of the iframe. |
+|Margin Top  | Top margin of the iframe. |
+|Margin Left| Left margin of the iframe. |

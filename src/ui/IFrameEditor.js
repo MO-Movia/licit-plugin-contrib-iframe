@@ -80,7 +80,7 @@ class IFrameEditor extends React.PureComponent<any, any> {
                 autoFocus={true}
                 className="czi-image-url-editor-src-input"
                 onChange={this._onMarginTopChange}
-                placeholder="Margin Left"
+                placeholder="Margin Top"
                 type="text"
                 value={marginTop || ''}
               />
