@@ -16,5 +16,7 @@ export type ImageLike = {
   id: string,
   src: string,
   width: number,
+  marginLeft: number,
+  marginTop: number,
 };
 

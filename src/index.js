@@ -96,6 +96,8 @@ function insertIFrame(tr, schema, input) {
     src: input.src || '',
     height: input.height || '',
     width: input.width || '',
+    marginLeft: input.marginLeft || '',
+    marginTop: input.marginTop || '',
   };
 
   const node = iframe.create(attrs, null, null);

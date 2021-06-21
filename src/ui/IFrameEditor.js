@@ -19,7 +19,7 @@ class IFrameEditor extends React.PureComponent<any, any> {
   }
 
   render(): React.Element<any> {
-    const {src, width, height, validValue} = this.state;
+    const {src, width, height, validValue, marginLeft, marginTop} = this.state;
     return (
       <div className="czi-image-url-editor">
         <form className="czi-form" onSubmit={preventEventDefault}>
@@ -57,6 +57,32 @@ class IFrameEditor extends React.PureComponent<any, any> {
                 placeholder="Height"
                 type="text"
                 value={height || ''}
+              />
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Margin Left</legend>
+            <div className="czi-image-url-editor-src-input-row">
+              <input
+                autoFocus={true}
+                className="czi-image-url-editor-src-input"
+                onChange={this._onMarginLeftChange}
+                placeholder="Margin Left"
+                type="text"
+                value={marginLeft || ''}
+              />
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Margin Top</legend>
+            <div className="czi-image-url-editor-src-input-row">
+              <input
+                autoFocus={true}
+                className="czi-image-url-editor-src-input"
+                onChange={this._onMarginTopChange}
+                placeholder="Margin Left"
+                type="text"
+                value={marginTop || ''}
               />
             </div>
           </fieldset>
@@ -98,6 +124,22 @@ class IFrameEditor extends React.PureComponent<any, any> {
     });
   };
 
+  // on change the margin left input in ui
+  _onMarginLeftChange = (e: SyntheticInputEvent<>) => {
+    const marginLeft = e.target.value;
+    this.setState({
+      marginLeft,
+      validValue: true,
+    });
+  };
+  // on change the margin top input in ui
+  _onMarginTopChange = (e: SyntheticInputEvent<>) => {
+    const marginTop = e.target.value;
+    this.setState({
+      marginTop,
+      validValue: true,
+    });
+  };
   _cancel = (): void => {
     this.props.close();
   };
