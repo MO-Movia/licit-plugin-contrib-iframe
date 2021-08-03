@@ -9,7 +9,7 @@ import createPopUp from './ui/CreatePopUp';
 import IFrameEditor from './ui/IFrameEditor';
 import IFrameNodeSpec from './IFrameNodeSpec';
 
-export default class IFramePlugin extends Plugin {
+export class IFramePlugin extends Plugin {
   _popUp = null;
   constructor() {
     super({
