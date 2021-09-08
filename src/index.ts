@@ -1,11 +1,9 @@
-// @flow
-
 // IFram ProseMirror Plugin
 // [FS] IRAD-987 2020-06-12
-import { Plugin, PluginKey } from 'prosemirror-state';
-import { Fragment, Schema } from 'prosemirror-model';
-import { IFRAMEKEY, IFRAME } from './Constants';
-import createPopUp from './ui/CreatePopUp';
+import {Plugin, PluginKey} from 'prosemirror-state';
+import {Fragment, Schema} from 'prosemirror-model';
+import {IFRAMEKEY, IFRAME} from './Constants';
+import createPopUp from '@modusoperandi/licit-ui-commands';
 import IFrameEditor from './ui/IFrameEditor';
 import IFrameNodeSpec from './IFrameNodeSpec';
 
@@ -14,46 +12,40 @@ export class IFramePlugin extends Plugin {
   constructor() {
     super({
       key: new PluginKey(IFRAMEKEY),
-      state: {
-        init(config, state) {
-        },
-        apply(tr, set) {
-        }
-      },
       props: {
         handleDOMEvents: {
-          keydown(view, event) {
+          keydown(view, event): boolean {
             const charCode = event.key;
-            console.log(charCode);
             if (charCode === 'F7') {
-              const props = { runtime: view ? view.runtime : null };
-              this._popUp = createPopUp(IFrameEditor, props, {
+              const props = {runtime: view ? view['runtime'] : null};
+              this['_popUp'] = createPopUp(IFrameEditor, props, {
                 modal: true,
-                onClose: val => {
-                  if (this._popUp) {
-                    this._popUp = null;
+                onClose: (val) => {
+                  if (this['_popUp']) {
+                    this['_popUp'] = null;
                     executeWithUserInput(view, val);
                   }
                 },
               });
-              return;
+              return true;
             }
-          }
+            return false;
+          },
         },
-        nodeViews: []
       },
     });
   }
 
   // [FS][IRAD-???? 2020-08-17]
   // Plugin method that supplies plugin schema to editor
-  getEffectiveSchema(schema: Schema) {
+  getEffectiveSchema(schema: Schema): Schema {
     return applyEffectiveSchema(schema);
   }
 }
 
 function applyEffectiveSchema(schema: Schema) {
-  const nodes = schema.spec.nodes.append({ 'iframe': IFrameNodeSpec });
+  schema.spec.nodes[IFRAME] = IFrameNodeSpec;
+  const nodes = schema.spec.nodes;
   const marks = schema.spec.marks;
 
   return new Schema({
@@ -63,10 +55,10 @@ function applyEffectiveSchema(schema: Schema) {
 }
 
 function executeWithUserInput(view, inputs) {
-  const { state } = view;
-  const { selection, schema } = state;
+  const {state} = view;
+  const {selection, schema} = state;
 
-  let { tr } = state;
+  let {tr} = state;
   tr = tr.setSelection(selection);
   if (inputs) {
     tr = insertIFrame(tr, schema, inputs);
@@ -78,11 +70,11 @@ function executeWithUserInput(view, inputs) {
 }
 
 function insertIFrame(tr, schema, input) {
-  const { selection } = tr;
+  const {selection} = tr;
   if (!selection) {
     return tr;
   }
-  const { from, to } = selection;
+  const {from, to} = selection;
   if (from !== to) {
     return tr;
   }

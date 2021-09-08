@@ -1,10 +1,10 @@
-// @flow
-
 import * as React from 'react';
-import sanitizeURL from './SanitizeURL';
-import CustomButton from './CustomButton';
+import prefixHTTPProtocol from './PrefixHTTPProtocol';
+import {
+  CustomButton,
+  preventEventDefault,
+} from '@modusoperandi/licit-ui-commands';
 import {ENTER} from './KeyCodes';
-import preventEventDefault from './PreventEventDefault';
 
 const BAD_CHARACTER_PATTER = /\s/;
 
@@ -13,7 +13,7 @@ class LinkURLEditor extends React.PureComponent<any, any> {
     url: this.props.href,
   };
 
-  render(): React.Element<any> {
+  render(): React.ReactNode {
     const {href} = this.props;
     const {url} = this.state;
 
@@ -64,7 +64,7 @@ class LinkURLEditor extends React.PureComponent<any, any> {
     }
   };
 
-  _onURLChange = (e: SyntheticInputEvent<>) => {
+  _onURLChange = (e: SyntheticInputEvent) => {
     const url = e.target.value;
     this.setState({
       url,
@@ -78,7 +78,7 @@ class LinkURLEditor extends React.PureComponent<any, any> {
   _apply = (): void => {
     const {url} = this.state;
     if (url && !BAD_CHARACTER_PATTER.test(url)) {
-      this.props.close(sanitizeURL(url));
+      this.props.close(prefixHTTPProtocol(url));
     }
   };
 }

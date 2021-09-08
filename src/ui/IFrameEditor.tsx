@@ -1,8 +1,8 @@
-// @flow
-
 import * as React from 'react';
-import CustomButton from './CustomButton';
-import preventEventDefault from './PreventEventDefault';
+import {
+  CustomButton,
+  preventEventDefault,
+} from '@modusoperandi/licit-ui-commands';
 import '../styles.css';
 
 class IFrameEditor extends React.PureComponent<any, any> {
@@ -18,7 +18,7 @@ class IFrameEditor extends React.PureComponent<any, any> {
     this._unmounted = true;
   }
 
-  render(): React.Element<any> {
+  render(): React.ReactNode {
     const {src, width, height, validValue, marginLeft, marginTop} = this.state;
     return (
       <div className="czi-image-url-editor">
@@ -100,7 +100,7 @@ class IFrameEditor extends React.PureComponent<any, any> {
     );
   }
 
-  _onSrcChange = (e: SyntheticInputEvent<>) => {
+  _onSrcChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const src = e.target.value;
     this.setState({
       src,
@@ -108,7 +108,7 @@ class IFrameEditor extends React.PureComponent<any, any> {
     });
   };
 
-  _onWidthChange = (e: SyntheticInputEvent<>) => {
+  _onWidthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const width = e.target.value;
     this.setState({
       width,
@@ -116,7 +116,7 @@ class IFrameEditor extends React.PureComponent<any, any> {
     });
   };
 
-  _onHeightChange = (e: SyntheticInputEvent<>) => {
+  _onHeightChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const height = e.target.value;
     this.setState({
       height,
@@ -125,7 +125,7 @@ class IFrameEditor extends React.PureComponent<any, any> {
   };
 
   // on change the margin left input in ui
-  _onMarginLeftChange = (e: SyntheticInputEvent<>) => {
+  _onMarginLeftChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const marginLeft = e.target.value;
     this.setState({
       marginLeft,
@@ -133,7 +133,7 @@ class IFrameEditor extends React.PureComponent<any, any> {
     });
   };
   // on change the margin top input in ui
-  _onMarginTopChange = (e: SyntheticInputEvent<>) => {
+  _onMarginTopChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const marginTop = e.target.value;
     this.setState({
       marginTop,

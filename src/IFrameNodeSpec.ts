@@ -1,8 +1,14 @@
-// @flow
+import {Node, NodeSpec} from 'prosemirror-model';
+import { IFRAME } from './Constants';
 
-import type {NodeSpec} from './Types';
-
-function getAttrs(dom: HTMLElement) {
+function getAttrs(dom: HTMLElement): {
+  align: string;
+  height: number;
+  src: string;
+  width: number;
+  marginLeft: number;
+  marginTop: number;
+} {
   let {width, height, marginLeft, marginTop} = dom.style;
   let align = dom.getAttribute('align');
   if (align) {
@@ -37,15 +43,15 @@ const IFrameNodeSpec: NodeSpec = {
   },
   group: 'inline',
   draggable: true,
-  parseDOM: [{tag: 'iframe[src]', getAttrs}],
-  toDOM(node) {
+  parseDOM: [{tag: IFRAME + '[src]', getAttrs}],
+  toDOM(node: Node) {
     // [FS] IRAD- 2021-06-21
     // New inputs for the iframe plugin
     let style = '';
     style += `margin-top: ${node.attrs.marginTop}px ;`;
     style += `margin-left: ${node.attrs.marginLeft}px ;`;
     node.attrs.style = style;
-    return ['iframe', node.attrs];
+    return [IFRAME, node.attrs];
   },
 };
 
