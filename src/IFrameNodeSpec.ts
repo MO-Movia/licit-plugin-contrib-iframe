@@ -1,5 +1,5 @@
 import {Node, NodeSpec} from 'prosemirror-model';
-import { IFRAME } from './Constants';
+import {IFRAME} from './Constants';
 
 function getAttrs(dom: HTMLElement): {
   align: string;

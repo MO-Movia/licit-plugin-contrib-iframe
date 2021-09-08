@@ -1,4 +1,3 @@
-
 const HTTP_PREFIX = /^http(s?):*\/\//i;
 
 export default function prefixHTTPProtocol(url?: string): string {

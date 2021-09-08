@@ -1,8 +1,5 @@
 import * as React from 'react';
-import {
-  CustomButton,
-  preventEventDefault,
-} from '@modusoperandi/licit-ui-commands';
+import {CustomButton} from '@modusoperandi/licit-ui-commands';
 import '../styles.css';
 
 class IFrameEditor extends React.PureComponent<any, any> {
@@ -22,7 +19,7 @@ class IFrameEditor extends React.PureComponent<any, any> {
     const {src, width, height, validValue, marginLeft, marginTop} = this.state;
     return (
       <div className="czi-image-url-editor">
-        <form className="czi-form" onSubmit={preventEventDefault}>
+        <form className="czi-form" onSubmit={this.preventEventDefault}>
           <fieldset>
             <legend>IFrame Source</legend>
             <div className="czi-image-url-editor-src-input-row">
@@ -98,6 +95,10 @@ class IFrameEditor extends React.PureComponent<any, any> {
         </form>
       </div>
     );
+  }
+
+  preventEventDefault(e: React.SyntheticEvent): void {
+    e.preventDefault();
   }
 
   _onSrcChange = (e: React.ChangeEvent<HTMLInputElement>) => {

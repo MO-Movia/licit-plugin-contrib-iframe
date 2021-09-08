@@ -1,8 +1,7 @@
-
 import * as React from 'react';
 
 // https://loading.io/css/
-class LoadingIndicator extends React.PureComponent<any, any>{
+class LoadingIndicator extends React.PureComponent<any, any> {
   render(): React.ReactNode {
     return (
       <div className="czi-loading-indicator">

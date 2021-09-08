@@ -1,9 +1,6 @@
 import * as React from 'react';
 import prefixHTTPProtocol from './PrefixHTTPProtocol';
-import {
-  CustomButton,
-  preventEventDefault,
-} from '@modusoperandi/licit-ui-commands';
+import {CustomButton} from '@modusoperandi/licit-ui-commands';
 import {ENTER} from './KeyCodes';
 
 const BAD_CHARACTER_PATTER = /\s/;
@@ -30,7 +27,7 @@ class LinkURLEditor extends React.PureComponent<any, any> {
 
     return (
       <div className="czi-image-url-editor">
-        <form className="czi-form" onSubmit={preventEventDefault}>
+        <form className="czi-form" onSubmit={this.preventEventDefault}>
           <fieldset>
             <legend>Add a Link</legend>
             <input
@@ -57,6 +54,10 @@ class LinkURLEditor extends React.PureComponent<any, any> {
     );
   }
 
+  preventEventDefault(e: React.SyntheticEvent): void {
+    e.preventDefault();
+  }
+
   _onKeyDown = (e: any) => {
     if (e.keyCode === ENTER) {
       e.preventDefault();
@@ -64,7 +65,7 @@ class LinkURLEditor extends React.PureComponent<any, any> {
     }
   };
 
-  _onURLChange = (e: SyntheticInputEvent) => {
+  _onURLChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const url = e.target.value;
     this.setState({
       url,
