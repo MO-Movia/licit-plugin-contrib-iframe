@@ -3,9 +3,10 @@
 import {Plugin, PluginKey} from 'prosemirror-state';
 import {Fragment, Schema} from 'prosemirror-model';
 import {IFRAMEKEY, IFRAME} from './Constants';
-import createPopUp from '@modusoperandi/licit-ui-commands';
+import {createPopUp} from '@modusoperandi/licit-ui-commands';
 import IFrameEditor from './ui/IFrameEditor';
 import IFrameNodeSpec from './IFrameNodeSpec';
+import OrderedMap from 'orderedmap';
 
 export class IFramePlugin extends Plugin {
   _popUp = null;
@@ -44,8 +45,7 @@ export class IFramePlugin extends Plugin {
 }
 
 function applyEffectiveSchema(schema: Schema) {
-  schema.spec.nodes[IFRAME] = IFrameNodeSpec;
-  const nodes = schema.spec.nodes;
+  const nodes = (schema.spec.nodes as OrderedMap<unknown>).append({ 'iframe': IFrameNodeSpec });
   const marks = schema.spec.marks;
 
   return new Schema({

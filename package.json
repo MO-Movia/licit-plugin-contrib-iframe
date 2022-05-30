@@ -12,7 +12,7 @@
   "scripts": {
     "build:clean": "rm -rf dist/ && rm -f modusoperandi-licit-iframe-*.*.*.tgz",
     "build:ts": "tsc -p tsconfig.json",
-    "build:babel": "babel src --out-dir dist --extensions .ts",
+    "build:babel": "babel src --out-dir dist --extensions .ts,.tsx",
     "build:css": "cp src/*.css dist/",
     "build:dist": "npm run build:clean && npm run build:ts && npm run webpack && npm run build:babel && npm run build:css",
     "webpack": "webpack",
@@ -77,7 +77,7 @@
     "write-file-webpack-plugin": "4.5.1"
   },
   "dependencies": {
-    "@modusoperandi/licit-ui-commands": "file:modusoperandi-licit-ui-commands-0.0.1.tgz",
+    "@modusoperandi/licit-ui-commands": "git+https://github.com/MO-Movia/licit-ui-components.git#typescript_conversion",
     "browserkeymap": "2.0.2",
     "classnames": "2.3.1",
     "color": "4.0.1",
