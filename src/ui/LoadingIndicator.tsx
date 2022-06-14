@@ -1,10 +1,8 @@
-// @flow
-
 import * as React from 'react';
 
 // https://loading.io/css/
-class LoadingIndicator extends React.PureComponent<any, any>{
-  render(): React.Element<any> {
+class LoadingIndicator extends React.PureComponent<any, any> {
+  render(): React.ReactNode {
     return (
       <div className="czi-loading-indicator">
         <div className="frag czi-loading-indicator-frag-1" />

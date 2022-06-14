@@ -1,8 +1,5 @@
-// @flow
-
 import * as React from 'react';
-import CustomButton from './CustomButton';
-import preventEventDefault from './PreventEventDefault';
+import {CustomButton} from '@modusoperandi/licit-ui-commands';
 import '../styles.css';
 
 class IFrameEditor extends React.PureComponent<any, any> {
@@ -18,11 +15,11 @@ class IFrameEditor extends React.PureComponent<any, any> {
     this._unmounted = true;
   }
 
-  render(): React.Element<any> {
-    const {src, width, height, validValue} = this.state;
+  render(): React.ReactNode {
+    const {src, width, height, validValue, marginLeft, marginTop} = this.state;
     return (
       <div className="czi-image-url-editor">
-        <form className="czi-form" onSubmit={preventEventDefault}>
+        <form className="czi-form" onSubmit={this.preventEventDefault}>
           <fieldset>
             <legend>IFrame Source</legend>
             <div className="czi-image-url-editor-src-input-row">
@@ -60,6 +57,32 @@ class IFrameEditor extends React.PureComponent<any, any> {
               />
             </div>
           </fieldset>
+          <fieldset>
+            <legend>Margin Left</legend>
+            <div className="czi-image-url-editor-src-input-row">
+              <input
+                autoFocus={true}
+                className="czi-image-url-editor-src-input"
+                onChange={this._onMarginLeftChange}
+                placeholder="Margin Left"
+                type="text"
+                value={marginLeft || ''}
+              />
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Margin Top</legend>
+            <div className="czi-image-url-editor-src-input-row">
+              <input
+                autoFocus={true}
+                className="czi-image-url-editor-src-input"
+                onChange={this._onMarginTopChange}
+                placeholder="Margin Top"
+                type="text"
+                value={marginTop || ''}
+              />
+            </div>
+          </fieldset>
           <div className="czi-form-buttons">
             <CustomButton label="Cancel" onClick={this._cancel} />
             <CustomButton
@@ -74,7 +97,11 @@ class IFrameEditor extends React.PureComponent<any, any> {
     );
   }
 
-  _onSrcChange = (e: SyntheticInputEvent<>) => {
+  preventEventDefault(e: React.SyntheticEvent): void {
+    e.preventDefault();
+  }
+
+  _onSrcChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const src = e.target.value;
     this.setState({
       src,
@@ -82,7 +109,7 @@ class IFrameEditor extends React.PureComponent<any, any> {
     });
   };
 
-  _onWidthChange = (e: SyntheticInputEvent<>) => {
+  _onWidthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const width = e.target.value;
     this.setState({
       width,
@@ -90,7 +117,7 @@ class IFrameEditor extends React.PureComponent<any, any> {
     });
   };
 
-  _onHeightChange = (e: SyntheticInputEvent<>) => {
+  _onHeightChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const height = e.target.value;
     this.setState({
       height,
@@ -98,6 +125,22 @@ class IFrameEditor extends React.PureComponent<any, any> {
     });
   };
 
+  // on change the margin left input in ui
+  _onMarginLeftChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const marginLeft = e.target.value;
+    this.setState({
+      marginLeft,
+      validValue: true,
+    });
+  };
+  // on change the margin top input in ui
+  _onMarginTopChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const marginTop = e.target.value;
+    this.setState({
+      marginTop,
+      validValue: true,
+    });
+  };
   _cancel = (): void => {
     this.props.close();
   };
