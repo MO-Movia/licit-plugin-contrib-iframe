@@ -1,6 +1,6 @@
 {
   "name": "@modusoperandi/licit-iframe",
-  "version": "0.0.2-1",
+  "version": "0.0.3",
   "subversion": "1",
   "description": "IFrame plugin built with React and ProseMirror",
   "main": "dist/index.js",
