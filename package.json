@@ -77,7 +77,7 @@
     "write-file-webpack-plugin": "4.5.1"
   },
   "dependencies": {
-    "@modusoperandi/licit-ui-commands": "^0.1.5",
+    "@modusoperandi/licit-ui-commands": "^0.1.6",
     "browserkeymap": "2.0.2",
     "classnames": "2.3.1",
     "color": "4.0.1",
