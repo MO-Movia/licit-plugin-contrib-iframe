@@ -1,4 +1,4 @@
-.czi-form legend {
+.czi-editor-frameset .czi-form legend {
   margin: 0 0 5px 0 !important;
   border: none;
   padding: 0;
@@ -6,6 +6,6 @@
   user-select: none;
 }
 
-.czi-image-url-editor-src-input-row input.czi-image-url-editor-src-input {
+.czi-editor-frameset .molif-czi-image-url-editor-src-input-row input.czi-image-url-editor-src-input {
   border: var(--czi-border-grey) !important;
 }

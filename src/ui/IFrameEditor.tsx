@@ -19,13 +19,13 @@ class IFrameEditor extends React.PureComponent<any, any> {
     const {src, width, height, validValue, marginLeft, marginTop} = this.state;
     return (
       <div className="czi-image-url-editor">
-        <form className="czi-form" onSubmit={this.preventEventDefault}>
+        <form className="molif-czi-form" onSubmit={this.preventEventDefault}>
           <fieldset>
             <legend>IFrame Source</legend>
-            <div className="czi-image-url-editor-src-input-row">
+            <div className="molif-czi-image-url-editor-src-input-row">
               <input
                 autoFocus={true}
-                className="czi-image-url-editor-src-input"
+                className="molif-czi-image-url-editor-src-input"
                 onChange={this._onSrcChange}
                 placeholder="Paste URL ..."
                 type="text"
@@ -35,9 +35,9 @@ class IFrameEditor extends React.PureComponent<any, any> {
           </fieldset>
           <fieldset>
             <legend>Width</legend>
-            <div className="czi-image-url-editor-src-input-row">
+            <div className="molif-czi-image-url-editor-src-input-row">
               <input
-                className="czi-image-url-editor-src-input"
+                className="molif-czi-image-url-editor-src-input"
                 onChange={this._onWidthChange}
                 placeholder="Width"
                 type="text"
@@ -47,9 +47,9 @@ class IFrameEditor extends React.PureComponent<any, any> {
           </fieldset>
           <fieldset>
             <legend>Height</legend>
-            <div className="czi-image-url-editor-src-input-row">
+            <div className="molif-czi-image-url-editor-src-input-row">
               <input
-                className="czi-image-url-editor-src-input"
+                className="molif-czi-image-url-editor-src-input"
                 onChange={this._onHeightChange}
                 placeholder="Height"
                 type="text"
@@ -59,10 +59,10 @@ class IFrameEditor extends React.PureComponent<any, any> {
           </fieldset>
           <fieldset>
             <legend>Margin Left</legend>
-            <div className="czi-image-url-editor-src-input-row">
+            <div className="molif-czi-image-url-editor-src-input-row">
               <input
                 autoFocus={true}
-                className="czi-image-url-editor-src-input"
+                className="molif-czi-image-url-editor-src-input"
                 onChange={this._onMarginLeftChange}
                 placeholder="Margin Left"
                 type="text"
@@ -72,10 +72,10 @@ class IFrameEditor extends React.PureComponent<any, any> {
           </fieldset>
           <fieldset>
             <legend>Margin Top</legend>
-            <div className="czi-image-url-editor-src-input-row">
+            <div className="molif-czi-image-url-editor-src-input-row">
               <input
                 autoFocus={true}
-                className="czi-image-url-editor-src-input"
+                className="molif-czi-image-url-editor-src-input"
                 onChange={this._onMarginTopChange}
                 placeholder="Margin Top"
                 type="text"
