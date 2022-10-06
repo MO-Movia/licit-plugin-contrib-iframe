@@ -18,7 +18,7 @@ class IFrameEditor extends React.PureComponent<any, any> {
   render(): React.ReactNode {
     const {src, width, height, validValue, marginLeft, marginTop} = this.state;
     return (
-      <div className="czi-image-url-editor">
+      <div className="molif-czi-image-url-editor">
         <form className="molif-czi-form" onSubmit={this.preventEventDefault}>
           <fieldset>
             <legend>IFrame Source</legend>
