@@ -26,8 +26,8 @@ class LinkURLEditor extends React.PureComponent<any, any> {
     }
 
     return (
-      <div className="czi-image-url-editor">
-        <form className="czi-form" onSubmit={this.preventEventDefault}>
+      <div className="molif-czi-image-url-editor">
+        <form className="molif-czi-form" onSubmit={this.preventEventDefault}>
           <fieldset>
             <legend>Add a Link</legend>
             <input

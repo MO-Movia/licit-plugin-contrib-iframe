@@ -1,4 +1,14 @@
-.czi-form legend {
+
+.czi-editor-frameset .molif-czi-form {
+  background: #fff;
+  border: none;
+  font-family: var(--czi-font-family);
+  font-size: var(--czi-font-size);
+  margin: 0;
+  padding: 20px;
+}
+
+.czi-editor-frameset .molif-czi-form legend {
   margin: 0 0 5px 0 !important;
   border: none;
   padding: 0;
@@ -6,6 +16,47 @@
   user-select: none;
 }
 
-.czi-image-url-editor-src-input-row input.czi-image-url-editor-src-input {
+.czi-editor-frameset .molif-czi-image-url-editor-src-input-row input.molif-czi-image-url-editor-src-input {
   border: var(--czi-border-grey) !important;
+}
+
+
+.czi-editor-frameset .molif-czi-image-url-editor {
+  background: #fff;
+  box-shadow: var(--czi-overlay-shadow);
+  font-family: var(--czi-font-family);
+  font-size: var(--czi-font-size);
+  padding: 4px 10px;
+}
+
+.czi-editor-frameset .molif-czi-image-url-editor .molif-czi-form {
+  max-width: 90vw;
+  min-width: 40vw;
+  width: 500px;
+}
+
+.czi-editor-frameset .molif-czi-form fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.czi-editor-frameset .molif-czi-form input[type='text'] {
+  border-width: 0 0 2px 0;
+  border: var(--czi-border-blue);
+  box-sizing: border-box;
+  display: block;
+  font-family: var(--czi-font-family);
+  font-size: var(--czi-font-size);
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 8px;
+  margin-left: 0;
+  outline: none;
+  padding-bottom: 12px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 12px;
+  text-indent: 12px;
+  width: 100%;
 }
