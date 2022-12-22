@@ -1,6 +1,6 @@
 {
   "name": "@modusoperandi/licit-iframe",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "subversion": "1",
   "description": "IFrame plugin built with React and ProseMirror",
   "main": "dist/index.js",
@@ -45,7 +45,6 @@
     "@babel/preset-react": "^7.18.0",
     "@babel/preset-typescript": "^7.15.0",
     "@types/node": "^16.7.10",
-    "@types/react": "^17.0.35",
     "@typescript-eslint/eslint-plugin": "^4.30.0",
     "@typescript-eslint/parser": "^4.30.0",
     "babel-jest": "^27.1.0",
@@ -77,24 +76,15 @@
     "write-file-webpack-plugin": "4.5.1"
   },
   "dependencies": {
-    "@modusoperandi/licit-ui-commands": "^0.1.12",
-    "@types/react": "^18.0.21",
-    "@types/react-dom": "^18.0.6",
-    "browserkeymap": "2.0.2",
-    "classnames": "2.3.1",
-    "color": "4.0.1",
+    "@modusoperandi/licit-ui-commands": "^0.1.13",
     "exports-loader": "3.0.0",
     "file-loader": "^6.2.0",
     "invariant": "2.2.4",
     "katex": "0.13.18",
     "query-string": "7.0.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "resize-observer-polyfill": "1.5.1",
     "smooth-scroll-into-view-if-needed": "1.1.32",
-    "stable": "0.1.8",
-    "typescript": "^4.4.2",
-    "uuid": "8.3.2"
+    "stable": "0.1.8"
   },
   "importSort": {
     ".js": {
