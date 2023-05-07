@@ -18,8 +18,13 @@
     "webpack": "webpack",
     "lint:ts": "eslint src --ext .ts --fix",
     "lint:css": "stylelint \"src/**/*.css\"",
+    "lint": "npm run lint:css & npm run lint:ts",
     "prepare": "npm run build:dist",
-    "test": "jest --passWithNoTests",
+    "test": "jest",
+    "test:unit": "jest",
+    "test:coverage": "jest --coverage",
+    "ci:build": "npm run build:clean && npm run build:ts && npm run webpack && npm run build:babel && npm run build:css",
+    "ci:bom": "cyclonedx-npm --ignore-npm-errors --short-PURLs --output-format XML --output-file dist/bom.xml",
     "debug": "node --debug-brk --inspect ./node_modules/.bin/jest -i"
   },
   "devDependencies": {
@@ -44,6 +49,7 @@
     "@babel/preset-env": "^7.15.4",
     "@babel/preset-react": "^7.18.0",
     "@babel/preset-typescript": "^7.15.0",
+    "@cyclonedx/cyclonedx-npm": "^1.11.0",
     "@types/node": "^16.7.10",
     "@typescript-eslint/eslint-plugin": "^4.30.0",
     "@typescript-eslint/parser": "^4.30.0",
