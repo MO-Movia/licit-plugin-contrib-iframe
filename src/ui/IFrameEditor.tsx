@@ -101,7 +101,7 @@ class IFrameEditor extends React.PureComponent<any, any> {
     e.preventDefault();
   }
 
-  _onSrcChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  _onSrcChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const src = e.target.value;
     this.setState({
       src,
@@ -109,7 +109,7 @@ class IFrameEditor extends React.PureComponent<any, any> {
     });
   };
 
-  _onWidthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  _onWidthChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const width = e.target.value;
     this.setState({
       width,
@@ -117,7 +117,7 @@ class IFrameEditor extends React.PureComponent<any, any> {
     });
   };
 
-  _onHeightChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  _onHeightChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const height = e.target.value;
     this.setState({
       height,
@@ -126,7 +126,7 @@ class IFrameEditor extends React.PureComponent<any, any> {
   };
 
   // on change the margin left input in ui
-  _onMarginLeftChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  _onMarginLeftChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const marginLeft = e.target.value;
     this.setState({
       marginLeft,
@@ -134,7 +134,7 @@ class IFrameEditor extends React.PureComponent<any, any> {
     });
   };
   // on change the margin top input in ui
-  _onMarginTopChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  _onMarginTopChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const marginTop = e.target.value;
     this.setState({
       marginTop,

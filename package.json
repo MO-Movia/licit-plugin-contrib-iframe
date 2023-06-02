@@ -50,6 +50,7 @@
     "@babel/preset-react": "^7.18.0",
     "@babel/preset-typescript": "^7.15.0",
     "@cyclonedx/cyclonedx-npm": "^1.11.0",
+    "@types/jest": "^27.5.2",
     "@types/node": "^16.7.10",
     "@typescript-eslint/eslint-plugin": "^4.30.0",
     "@typescript-eslint/parser": "^4.30.0",
@@ -92,6 +93,12 @@
     "resize-observer-polyfill": "1.5.1",
     "smooth-scroll-into-view-if-needed": "1.1.32",
     "stable": "0.1.8"
+  },
+  "overrides": {
+    "@remirror/pm": {
+      "vierson": "^1",
+      "prosemirror-model": "^1.16.0"
+    }
   },
   "importSort": {
     ".js": {
