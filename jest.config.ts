@@ -20,7 +20,7 @@ export default {
   collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
-  collectCoverageFrom: ['*.js', '*.ts'],
+  collectCoverageFrom: ['*.js', '*.ts', '**/*.tsx'],
 
   // The directory where Jest should output its coverage files
   coverageDirectory: '../coverage',
@@ -36,8 +36,9 @@ export default {
   // A list of reporter names that Jest uses when writing coverage reports
   coverageReporters: [
   //   "json",
-  //   "text",
+        'text',
         'lcov',
+        'cobertura'
   //   "clover"
   ],
 
@@ -75,7 +76,7 @@ export default {
     'js',
     //   "jsx",
     'ts',
-    //   "tsx",
+    'tsx',
     //   "json",
     //   "node"
   ],
@@ -101,7 +102,16 @@ export default {
   // projects: undefined,
 
   // Use this configuration option to add custom reporters to Jest
-  // reporters: undefined,
+  reporters: [
+    'default',
+      [
+        'jest-junit',
+        {
+          outputDirectory: 'coverage',
+          outputName: 'TESTS.xml'
+        }
+      ]
+    ],
 
   // Automatically reset mock state between every test
   // resetMocks: false,
