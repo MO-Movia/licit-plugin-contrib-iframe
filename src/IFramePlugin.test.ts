@@ -1,4 +1,4 @@
-import IFrameNodeSpec from './IFrameNodeSpec';
+import {IFrameNodeSpec} from './IFrameNodeSpec';
 import { IFramePlugin } from './IFramePlugin';
 import { schema } from 'jest-prosemirror';
 

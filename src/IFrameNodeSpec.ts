@@ -31,7 +31,7 @@ function getAttrs(dom: HTMLElement): {
 }
 
 // https://github.com/ProseMirror/prosemirror-schema-basic/blob/master/src/schema-basic.js
-const IFrameNodeSpec: NodeSpec = {
+export const IFrameNodeSpec: NodeSpec = {
   inline: true,
   attrs: {
     align: { default: null },
@@ -54,4 +54,4 @@ const IFrameNodeSpec: NodeSpec = {
   },
 };
 
-export default IFrameNodeSpec;
+//export default IFrameNodeSpec;
