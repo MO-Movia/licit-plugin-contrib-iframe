@@ -85,12 +85,14 @@
     "webpack-cli": "^4.8.0",
     "write-file-webpack-plugin": "4.5.1"
   },
+  "peerDependencies": {
+    "@modusoperandi/licit-ui-commands": "^0.1.13"
+  },
   "dependencies": {
     "@babel/plugin-proposal-json-strings": "^7.18.6",
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.18.6",
     "@babel/plugin-proposal-numeric-separator": "^7.18.6",
     "@babel/plugin-proposal-optional-chaining": "^7.21.0",
-    "@modusoperandi/licit-ui-commands": "^0.1.13",
     "exports-loader": "3.0.0",
     "file-loader": "^6.2.0",
     "invariant": "2.2.4",
