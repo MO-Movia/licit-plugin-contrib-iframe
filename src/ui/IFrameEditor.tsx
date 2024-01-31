@@ -3,17 +3,10 @@ import {CustomButton} from '@modusoperandi/licit-ui-commands';
 import '../styles.css';
 
 class IFrameEditor extends React.PureComponent<any, any> {
-  _img = null;
-  _unmounted = false;
-
   state = {
     ...(this.props.initialValue || {}),
     validValue: null,
   };
-
-  componentWillUnmount(): void {
-    this._unmounted = true;
-  }
 
   render(): React.ReactNode {
     const {src, width, height, validValue, marginLeft, marginTop} = this.state;
