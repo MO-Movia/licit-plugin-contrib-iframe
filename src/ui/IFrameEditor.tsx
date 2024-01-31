@@ -1,6 +1,5 @@
 import React from 'react';
 import {CustomButton} from '@modusoperandi/licit-ui-commands';
-import '../styles.css';
 
 class IFrameEditor extends React.PureComponent<any, any> {
   state = {
