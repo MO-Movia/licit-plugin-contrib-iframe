@@ -5,7 +5,7 @@ import {Fragment, Schema} from 'prosemirror-model';
 import {IFRAMEKEY, IFRAME} from './Constants';
 import {createPopUp} from '@modusoperandi/licit-ui-commands';
 import IFrameEditor from './ui/IFrameEditor';
-import IFrameNodeSpec from './IFrameNodeSpec';
+import {IFrameNodeSpec} from './IFrameNodeSpec';
 
 export class IFramePlugin extends Plugin {
   _popUp = null;
