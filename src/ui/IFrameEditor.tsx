@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import {CustomButton} from '@modusoperandi/licit-ui-commands';
 import '../styles.css';
 
