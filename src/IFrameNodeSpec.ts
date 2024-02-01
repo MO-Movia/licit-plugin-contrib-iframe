@@ -1,5 +1,5 @@
-import { Node, NodeSpec } from 'prosemirror-model';
-import { IFRAME } from './Constants';
+import {Node, NodeSpec} from 'prosemirror-model';
+import {IFRAME} from './Constants';
 
 function getAttrs(dom: HTMLElement): {
   align: string;
@@ -9,7 +9,7 @@ function getAttrs(dom: HTMLElement): {
   marginLeft: number;
   marginTop: number;
 } {
-  let { width, height, marginLeft, marginTop } = dom.style;
+  let {width, height, marginLeft, marginTop} = dom.style;
   let align = dom.getAttribute('align');
   if (align) {
     align = /(left|right|center)/.test(align) ? align : null;
@@ -31,27 +31,25 @@ function getAttrs(dom: HTMLElement): {
 }
 
 // https://github.com/ProseMirror/prosemirror-schema-basic/blob/master/src/schema-basic.js
-const IFrameNodeSpec: NodeSpec = {
+export const IFrameNodeSpec: NodeSpec = {
   inline: true,
   attrs: {
-    align: { default: null },
-    height: { default: null },
-    src: { default: null },
-    width: { default: null },
-    marginLeft: { default: null },
-    marginTop: { default: null },
+    align: {default: null},
+    height: {default: null},
+    src: {default: null},
+    width: {default: null},
+    marginLeft: {default: null},
+    marginTop: {default: null},
   },
   group: 'inline',
   draggable: true,
-  parseDOM: [{ tag: IFRAME + '[src]', getAttrs }],
+  parseDOM: [{tag: IFRAME + '[src]', getAttrs}],
   toDOM(node: Node) {
     // [FS] IRAD- 2021-06-21
     // New inputs for the iframe plugin
     let style = '';
     style += `margin-top: ${node.attrs.marginTop}px ;`;
     style += `margin-left: ${node.attrs.marginLeft}px ;`;
-    return [IFRAME, { ...node.attrs, style }];
+    return [IFRAME, {...node.attrs, style}];
   },
 };
-
-export default IFrameNodeSpec;

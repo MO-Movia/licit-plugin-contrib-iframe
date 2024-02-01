@@ -40,7 +40,8 @@ module.exports = {
     strict: 0,
   },
   globals: {
-    HTMLElement: false,
+    HTMLElement: true,
+    HTMLInputElement: true,
     Event: false,
     MouseEvent: false,
     document: false,
