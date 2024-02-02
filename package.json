@@ -48,7 +48,7 @@
     "jest-junit": "^15.0.0",
     "jest-prosemirror": "^2.1.5",
     "jest-sonar-reporter": "^2.0.0",
-    "lint-staged": "^11.1.2",
+    "lint-staged": "^15.2.1",
     "prettier": "^3.2.0",
     "stylelint": "^16.2.0",
     "stylelint-config-standard": "^36.0.0",
