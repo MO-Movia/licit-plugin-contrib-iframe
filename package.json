@@ -45,7 +45,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.3.1",
     "jest-environment-jsdom": "^29.7.0",
-    "jest-junit": "^15.0.0",
+    "jest-junit": "^16.0.0",
     "jest-prosemirror": "^2.1.5",
     "jest-sonar-reporter": "^2.0.0",
     "lint-staged": "^15.2.1",
