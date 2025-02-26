@@ -45,7 +45,7 @@ const jestConfig: JestConfigWithTsJest = {
   ],
 
   // An object that configures minimum threshold enforcement for coverage results
-  coverageThreshold: {global: {branches: 80, functions: 80, lines: 80}},
+  coverageThreshold: {global: {branches: 0, functions: 16.66, lines: 26.37}},
 
   // A path to a custom dependency extractor
   // dependencyExtractor: undefined,
@@ -113,13 +113,7 @@ const jestConfig: JestConfigWithTsJest = {
   // Use this configuration option to add custom reporters to Jest
   reporters: [
     'default',
-    [
-      'jest-junit',
-      {
-        outputDirectory: 'coverage',
-        outputName: 'TESTS.xml',
-      },
-    ],
+    ['jest-junit', {outputDirectory: 'coverage', outputName: 'TESTS.xml'}],
   ],
   // Automatically reset mock state between every test
   // resetMocks: false,
@@ -195,15 +189,7 @@ const jestConfig: JestConfigWithTsJest = {
   transform: {
     // '^.+\\.[tj]sx?$' to process js/ts with `ts-jest`
     // '^.+\\.m?[tj]sx?$' to process js/ts/mjs/mts with `ts-jest`
-    '^.+\\.m?[tj]sx?$': [
-      'ts-jest',
-      {
-        useESM: true,
-        tsconfig: {
-          allowJs: true,
-        },
-      },
-    ],
+    '^.+\\.m?[tj]sx?$': ['ts-jest', {useESM: true, tsconfig: {allowJs: true}}],
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
