@@ -20,7 +20,8 @@
     "test:coverage": "jest --coverage",
     "ci:build": "tsc --build && copyfiles --up 1 \"src/**/*.css\" dist  && copyfiles package.json dist",
     "ci:bom": "cyclonedx-npm --ignore-npm-errors --short-PURLs --output-format XML --output-file dist/bom.xml",
-    "debug": "node --debug-brk --inspect ./node_modules/.bin/jest -i"
+    "debug": "node --debug-brk --inspect ./node_modules/.bin/jest -i",
+    "verify": "npm run lint -- --fix && npm run ci:build && npm run test:coverage && echo 'All Tests Passed!'"
   },
   "peerDependencies": {
     "@modusoperandi/licit-ui-commands": "^1.0.0"
@@ -53,11 +54,12 @@
     "stylelint": "^16.2.0",
     "stylelint-config-standard": "^36.0.0",
     "stylelint-prettier": "^5.0.0",
+    "typescript": "5.5.4",
     "ts-jest": "^29.0.7",
     "ts-node": "^10.2.1"
   },
   "overrides": {
-    "semver": "^7.5.2"
+    "libxmljs2": "^1.0.0"
   },
   "importSort": {
     ".js": {
