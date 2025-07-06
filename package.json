@@ -27,7 +27,7 @@
     "@modusoperandi/licit-ui-commands": "^1.0.0"
   },
   "devDependencies": {
-    "@cyclonedx/cyclonedx-npm": "^3.0.0",
+    "@cyclonedx/cyclonedx-npm": "^4.0.0",
     "@testing-library/dom": "^10.0.0",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^16.0.0",
